@@ -6,16 +6,20 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "npm run vite-build && npm run vite-start",
+        "start": "npm run build && npm run preview",
         "vite": "vite",
         "vite-build": "vite build",
         "vite-start": "vite preview",
-        "dev": "npm run vite -- --host",
+        "old_dev": "npm run vite -- --host",
         "start-server": "npm run build && npm run preview",
-        "server": "node server",
+        "server": "node ./server/server",
+
+
+        
+        "dev": "node server",
         "build": "npm run build:client && npm run build:server",
         "build:client": "vite build --ssrManifest --outDir dist/client",
-        "build:server": "vite build --ssr src/server/entry-server.jsx --outDir dist/server",
+        "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
         "preview": "cross-env NODE_ENV=production node server"
     },
     "license": "ISC",
@@ -23,19 +27,20 @@
         "axios": "^1.6.2",
         "compression": "^1.7.4",
         "dotenv": "^16.3.1",
-        "express": "^4.18.2",
+        "express": "^4.19.2",
         "mongodb": "^6.3.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^5.2.1",
         "react-router-dom": "^6.20.1",
-        "sirv": "^2.0.3",
+        "sirv": "^2.0.4",
         "uuid": "^9.0.1"
     },
     "devDependencies": {
-        "@types/react": "^18.2.42",
-        "@types/react-dom": "^18.2.17",
+        "@types/react": "^18.2.79",
+        "@types/react-dom": "^18.2.25",
         "@vitejs/plugin-react": "^4.2.1",
-        "cross-env": "^7.0.3"
+        "cross-env": "^7.0.3",
+        "vite": "^5.2.10"
     }
 }
