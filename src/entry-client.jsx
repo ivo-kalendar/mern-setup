@@ -1,14 +1,5 @@
-import './styles/index.css'
-import { StrictMode } from 'react';
 import { hydrateRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import App from './ssr/App';
+import { Render } from "./Render";
 
-const Router = createBrowserRouter([{ path: "*", element: <App /> }]);
-
-hydrateRoot(
-    document.getElementById("root"),
-    <StrictMode>
-        <RouterProvider router={Router} />
-    </StrictMode>
-);
+const root = document.getElementById("root")
+hydrateRoot(root, <Render />)

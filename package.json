@@ -6,21 +6,25 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "npm run build && npm run preview",
         "vite": "vite",
         "vite-build": "vite build",
         "vite-start": "vite preview",
-        "old_dev": "npm run vite -- --host",
-        "start-server": "npm run build && npm run preview",
-        "server": "node ./server/server",
-
-
         
+        "start": "npm run build && npm run preview",
+
+        "dev-client": "npm run vite -- --host --open DEV-CLIENT",
         "dev": "node server",
         "build": "npm run build:client && npm run build:server",
         "build:client": "vite build --ssrManifest --outDir dist/client",
         "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
-        "preview": "cross-env NODE_ENV=production node server"
+        "preview": "cross-env NODE_ENV=production node server",
+        
+        "clean-deep": "rm -rf node_modules package-lock.json .vite_cache dist",
+        "clean-install": "npm run clean-deep && npm install",
+
+        "clean": "rm -rf .vite_cache dist",
+        "clean-dev": "npm run clean && npm run dev",
+        "clean-start": "npm run clean && npm run start"
     },
     "license": "ISC",
     "dependencies": {
