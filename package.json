@@ -12,7 +12,7 @@
         
         "start": "npm run build && npm run preview",
 
-        "dev-client": "npm run vite -- --host --open DEV-CLIENT",
+        "dev-client": "npm run vite -- --host --open",
         "dev": "node server",
         "build": "npm run build:client && npm run build:server",
         "build:client": "vite build --ssrManifest --outDir dist/client",

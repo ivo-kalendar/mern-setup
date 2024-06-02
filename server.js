@@ -1,7 +1,7 @@
 import express from 'express'
-import router from './server/router.js'
-import useProduction from './server/production.js'
-import useDevelopment from './server/development.js'
+import router from './routes/router.js'
+import createProdServer from './config/prodServer.js'
+import createDevServer from './config/devServer.js'
 
 const PORT = process.env.PORT || 7788
 const PRODUCTION = process.env.NODE_ENV === 'production'
@@ -11,9 +11,9 @@ app.use(express.json({ extended: false }));
 app.use("/api", router);
 
 if (PRODUCTION) {
-    await useProduction(app)
+    await createProdServer(app)
 } else {
-    await useDevelopment(app)
+    await createDevServer(app)
 }
 
 app.listen(PORT, () => {

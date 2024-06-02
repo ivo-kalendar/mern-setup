@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 const base = process.env.BASE || '/'
 
 /** @param {import('express').Express} app */
-export default async function useDevelopment(app) {
+export default async function createDevServer(app) {
     const { createServer } = await import('vite')
     const vite = await createServer({
         server: { middlewareMode: true },

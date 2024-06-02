@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 const BASE = process.env.BASE || '/'
 
 /** @param {import('express').Express} app */
-export default async function useProduction(app) {    
+export default async function createProdServer(app) {    
     const templateHtml = await fs.readFile('./dist/client/index.html', 'utf-8')
     const ssrManifest = await fs.readFile('./dist/client/.vite/ssr-manifest.json', 'utf-8')
     
