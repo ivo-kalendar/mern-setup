@@ -4,16 +4,16 @@ This repository contains a fullstack MERN (MongoDB, Express, React, Node.js) set
 
 ## Table of Contents
 
-- [Features](##features)
-- [Project Structure](##project-structure)
-- [Installation](##installation)
-- [Usage](##usage)
-  - [Development](###development)
-  - [Production](###production)
-- [Scripts](##scripts)
-- [Environment Variables](##environment-variables)
-- [License](##License)
-- [Contact](##contact)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Development](#development)
+  - [Production](#production)
+- [Scripts](#scripts)
+- [Environment Variables](#environment-variables)
+- [License](#License)
+- [Contact](#contact)
 
 ## Features
 

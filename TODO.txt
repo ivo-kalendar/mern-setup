@@ -1,7 +1,7 @@
 
 -----------------------------------------------------------------------
 - 02.06.2024
-// - Da se implementira Data baza
+- Da se implementira Data baza
 // - Da se Napravi dynamicen react routing sistem (frontend)
 // - Da se Napravi dynamicen express routing sistem (backend)
 // - Da se Napravat test middlewares
