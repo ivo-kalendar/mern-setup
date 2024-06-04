@@ -28,6 +28,7 @@ This repository contains a fullstack MERN (MongoDB, Express, React, Node.js) set
 ```plaintext
 .
 ├── config
+│   ├── db.js
 │   ├── devServer.js
 │   └── prodServer.js
 ├── controllers
@@ -147,7 +148,7 @@ npm run start
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
-Created by [Ivo Kalendarov](mailto:ivokalendar@icloud.com)..
+Created by [Ivo Kalendarov](mailto:ivokalendar@icloud.com).
 
 Make sure to replace the placeholder GitHub URL in the "Clone of the repository" section with your actual repository URL. This README file provides clear and detailed instructions for users to set up, develop, and deploy the project.
 
