@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server'
 import { StrictMode } from 'react'
-import App from './components/App'
+import App from '../components/App'
 
 export function render() {
     const head = renderToString(

@@ -16,4 +16,9 @@ export default defineConfig({
     esbuild: {
         // drop: ['console', 'debugger'],
     },
+    // server: {
+    //     open: '/index.html',
+    // },
+    // publicDir: 'public',
+    // root: 'public',
 })

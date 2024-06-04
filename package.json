@@ -1,6 +1,6 @@
 {
     "author": "Ivo Kalendarov <ivokalendar@icloud.com>",
-    "name": "global-macedonians",
+    "name": "mern-setup",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -16,7 +16,7 @@
         "dev": "node server",
         "build": "npm run build:client && npm run build:server",
         "build:client": "vite build --ssrManifest --outDir dist/client",
-        "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
+        "build:server": "vite build --ssr client/entry/entry-server.jsx --outDir dist/server",
         "preview": "cross-env NODE_ENV=production node server",
         
         "clean-deep": "rm -rf node_modules package-lock.json .vite_cache dist",

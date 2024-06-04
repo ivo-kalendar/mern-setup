@@ -1,8 +1,8 @@
 import express from 'express'
-import router from './routes/router.js'
-import createProdServer from './config/prodServer.js'
-import createDevServer from './config/devServer.js'
-import client from './config/db.js'
+import router from '../routes/router.js'
+import createProdServer from './prodServer.js'
+import createDevServer from './devServer.js'
+import client from './db.js'
 
 const PORT = process.env.PORT || 7788
 const PRODUCTION = process.env.NODE_ENV === 'production'

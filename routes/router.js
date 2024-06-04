@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router();
-import client from '../config/db.js'
+import client from '../server/db.js'
 
 router.get('/ping', (req, res) => {
     res.status(401).json({ msg: 'Нема Токен' })

@@ -17,7 +17,7 @@ export default async function createDevServer(app) {
 
             const served_html = await fs.readFile('./index.html', 'utf-8')
             const template = await vite.transformIndexHtml(url, served_html)
-            const render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
+            const render = (await vite.ssrLoadModule('/client/entry/entry-server.jsx')).render
             const rendered = await render(url)
 
             const html = template

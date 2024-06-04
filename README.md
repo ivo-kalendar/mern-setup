@@ -26,34 +26,41 @@ This repository contains a fullstack MERN (MongoDB, Express, React, Node.js) set
 ## Project Structure
 
 ```plaintext
-.
-├── config
-│   ├── db.js
-│   ├── devServer.js
-│   └── prodServer.js
+
+│
+├── client
+│   ├── assets
+│   ├── components
+│   │    └── App.jsx
+│   ├── context
+│   ├── entry
+│   │    ├── entry-client.jsx
+│   │    ├── entry-server.jsx
+│   │    ├── index.jsx
+│   │    └── Render.jsx
+│   ├── pages
+│   ├── routes
+│   ├── styles
+│   │    ├── App.css
+│   │    └── index.css
+│   └── utils
+│
 ├── controllers
 ├── middlewares
 ├── models
 ├── node_modules
 ├── public
 │   └── logo.svg
+│ 
 ├── routes
 │   └── router.js
-├── src
-│   ├── assets
-│   ├── components
-│   │    └── App.jsx
-│   ├── context
-│   ├── pages
-│   ├── routes
-│   ├── styles
-│   │    ├── App.css
-│   │    └── index.css
-│   ├── utils
-│   ├── entry-client.jsx
-│   ├── entry-server.jsx
-│   ├── index.jsx
-│   └── Render.jsx
+│ 
+├── server
+│   ├── db.js
+│   ├── devServer.js
+│   ├── index.js
+│   └── prodServer.js
+│ 
 ├── .env
 ├── .gitignore
 ├── CHANGELOG.md
@@ -61,9 +68,8 @@ This repository contains a fullstack MERN (MongoDB, Express, React, Node.js) set
 ├── package-lock.json
 ├── package.json
 ├── README.md
-├── server.js
-├── TODO.txt
 └── vite.config.js
+
 ```
 
 
