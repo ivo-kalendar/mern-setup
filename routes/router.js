@@ -1,25 +1,35 @@
 import express from 'express'
 const router = express.Router();
-import client from '../server/db.js'
 
-router.get('/ping', (req, res) => {
-    res.status(401).json({ msg: 'Нема Токен' })
-})
+import auth from '../middlewares/auth.js';
+import { 
+    createUser,
+    getAllUsers, 
+    getUser, 
+    getUserName 
+} from '../controllers/userController.js';
 
-router.get('/test', async (req, res) => {
-    const users = client.db().collection('users')
+router.post('/user', createUser);
+router.get('/user/:id', auth, getUser);
+router.get('/username/:id', auth, getUserName);
+router.get('/allusers', auth, getAllUsers);
 
-    const all = await users.find({}).toArray()
-    res.status(200).json(all)
-})
 
-router.post('/login', async (req, res) => {
-    const username = "Stanko" 
-    const password = 123 
-    const users = client.db().collection('users')
 
-    const user = await users.insertOne({ username, password })
-    res.status(200).json({ msg: 'Login Success!', user })
-})
+
+// router.get('/ping', (req, res) => {
+//     res.status(401).json({ msg: 'Нема Токен' })
+// })
+
+// router.get('/test', async (req, res) => {
+
+//     const all = await users.find({}).toArray()
+//     res.status(200).json(all)
+// })
+
+// router.post('/login', async (req, res) => {
+//     const user = await users.insertOne(doc)
+//     res.status(200).json({ msg: 'Login Success!', user })
+// })
 
 export default router
