@@ -5,23 +5,26 @@
     "description": "",
     "main": "index.js",
     "type": "module",
+    
+    "nodemonConfig": { 
+        "ext": "js", 
+        "ignore": ["*.test.ts", "db/*"], 
+        "delay": "2" 
+    },
     "scripts": {
         "vite": "vite",
         "vite-build": "vite build",
         "vite-start": "vite preview",
-        
         "start": "npm run build && npm run preview",
-
         "dev-client": "npm run vite -- --host --open",
-        "dev": "node server",
+
+        "dev": "nodemon server",
         "build": "npm run build:client && npm run build:server",
         "build:client": "vite build --ssrManifest --outDir dist/client",
         "build:server": "vite build --ssr client/entry/entry-server.jsx --outDir dist/server",
         "preview": "cross-env NODE_ENV=production node server",
-        
         "clean-deep": "rm -rf node_modules package-lock.json .vite_cache dist",
         "clean-install": "npm run clean-deep && npm install",
-
         "clean": "rm -rf .vite_cache dist",
         "clean-dev": "npm run clean && npm run dev",
         "clean-start": "npm run clean && npm run start"
@@ -45,6 +48,7 @@
         "@types/react-dom": "^18.2.25",
         "@vitejs/plugin-react": "^4.2.1",
         "cross-env": "^7.0.3",
+        "nodemon": "^3.1.3",
         "vite": "^5.2.10"
     }
 }
