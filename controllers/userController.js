@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import UserSchema from "../schemas/UserSchema.js";
 
 export async function getUser(req, res) {
     try {
@@ -12,9 +13,7 @@ export async function getUser(req, res) {
 
 export async function getUserName(req, res) {
     try {
-        console.log("1 ",req.params)
         const user = await new User(req.params).getNameById();
-        console.log("2 ", req.params)
 
         res.status(200).json(user);
     } catch (error) {
@@ -34,7 +33,15 @@ export async function getAllUsers(req, res) {
 
 export async function createUser(req, res) {
     try {
-        const new_user = await new User(req.body).create();
+        const user = new UserSchema().validate(req.body);
+        if (!!user.errors.length) {
+            return res.status(401).json({ 
+                msg: 'User not creted', 
+                errors: user.errors 
+            });
+        }
+
+        const new_user = await new User(user.data).create();
         res.status(200).json(new_user);
     } catch (error) {
         res.status(401).json({ msg: 'User not creted' });
