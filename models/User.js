@@ -3,10 +3,7 @@ import client from '../server/db.js'
 const users = client.db().collection('users')
 
 export default class User {
-    constructor(data) {
-        this.data = data;
-        this.errors = [];
-    }
+    constructor(data) { this.data = data; }
 
     #getId() {
         return { _id: ObjectId.createFromHexString(this.data.id) }
