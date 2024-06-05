@@ -10,5 +10,10 @@ Major:
 
 Minor:
 - Refactor and Changes.
+- Integrated Nodemon.
+- Created Controller only for handling the requests.
+- Created Model that handles only the database.
+- Created Schema that filters the data.
+- Working routes.
 
 ```
