@@ -18,7 +18,6 @@ userRoutes.get('/find/:id', auth, getUser);
 
 userRoutes.post('/new', validateUser, addExtraUserData, createUser);
 userRoutes.put('/find/:id', auth, validateUser, editUser);
-
 userRoutes.delete('/find/:id', auth, removeUser);
 
 export default userRoutes

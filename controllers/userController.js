@@ -1,46 +1,51 @@
 import User from "../models/User.js";
-import UserSchema from "../models/UserSchema.js";
 
 export async function getUser(req, res) {
     try {
-        const user = await new User(req.params).getById();
-        res.status(200).json(user);
+        const user = await new User().getById(req.params.id);
+        if (!!user) res.status(200).json(user);
+        else res.status(400).json({ msg: 'No such user' });
     } catch (error) {
-        res.status(401).json({ msg: 'No such user' });
-    }
-};
-
-export async function getUserName(req, res) {
-    try {
-        const user = await new User(req.params).getNameById();
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(401).json({ msg: 'No such user' });
+        res.status(400).json({ msg: 'No such user' });
     }
 };
 
 export async function getAllUsers(req, res) {
     try {
         const users = await new User().getAll();
-        res.status(200).json(users);
+        if (!!users) res.status(200).json(users);
+        else res.status(400).json({ msg: 'No users' });
     } catch (error) {
-        res.status(401).json({ msg: 'No users', error });
+        res.status(400).json({ msg: 'No users' });
     }
 }
 
 export async function createUser(req, res) {
     try {
-        const user = new UserSchema().validate(req.body);
-        if (!!user.errors.length) {
-            return res.status(401).json({ 
-                msg: 'User not creted', 
-                errors: user.errors 
-            });
-        }
-
-        const new_user = await new User(user.data).create();
-        res.status(200).json(new_user);
+        const new_user = await new User(req.body).create();
+        if (!!new_user) res.status(200).json(new_user);
+        else res.status(400).json({ msg: 'User not creted' });
     } catch (error) {
-        res.status(401).json({ msg: 'User not creted' });
+        res.status(400).json({ msg: 'User not creted' });
+    }
+}
+
+export async function editUser(req, res) {
+    try {
+        const changed = await new User(req.body).update(req.params.id);
+        if (!!changed) res.status(200).json(changed);
+        else res.status(400).json({ msg: 'User not changed!' });
+    } catch (error) {
+        res.status(400).json({ msg: 'User not changed', error });
+    }
+}
+
+export async function removeUser(req, res) {
+    try {
+        const deleted = await new User().delete(req.params.id);
+        if (!!deleted) res.status(200).json(deleted);
+        else res.status(400).json({ msg: 'User not removed!' });
+    } catch (error) {
+        res.status(400).json({ msg: 'User not removed' });
     }
 }

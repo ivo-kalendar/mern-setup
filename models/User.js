@@ -5,18 +5,11 @@ const users = client.db().collection('users')
 export default class User {
     constructor(data) { this.data = data; }
 
-    #getId() {
-        return { _id: ObjectId.createFromHexString(this.data.id) }
-    }
-
-    getById() {
-        const options = { projection: { password: 0, token: 0 } };
-        return users.findOne(this.#getId(), options);
-    }
-
-    getNameById() {
-        const options = { projection: { name: 1, surname: 1, username: 1 } };
-        return users.findOne(this.#getId(), options);
+    getById(id, options = { 
+        // projection: { password: 0, token: 0 } // 0 exclude
+        // projection: { name: 1, surname: 1, username: 1 } // 1 include
+    }) {
+        return users.findOne(this.getID(id), options);
     }
 
     getAll() {
@@ -32,8 +25,16 @@ export default class User {
         return users.insertOne(this.data)
     }
 
-    update() {}
+    update(id, options = {}) {
+        return users.updateOne(this.getID(id), { $set: this.data }, options);
+    }
 
-    delete() {}
+    delete(id) {
+        return users.deleteOne(this.getID(id));
+    }
+
+    getID(id) {
+        return { _id: ObjectId.createFromHexString(id) }
+    }
 }
 
