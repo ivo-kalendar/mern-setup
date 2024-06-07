@@ -15,5 +15,8 @@ Minor:
 - Created Model that handles only the database.
 - Created Schema that filters the data.
 - Working routes.
+- Separated userRoutes from routes.
+- User Routes Controler, Model and Schema.
+- User validator helpers and middlewares.
 
 ```

@@ -4,8 +4,14 @@
 - Da se implementira Data baza
 // - Da se Napravi dynamicen react routing sistem (frontend)
 // - Da se Napravi dynamicen express routing sistem (backend)
-// - Da se Napravat test middlewares
-// - Da se Napravat test Models
-// - Da se Napravat test Controllers
+- Da se Napravat test middlewares
+- Da se Napravat test Models
+- Da se Napravat test Controllers
+
+-----------------------------------------------------------------------
+- 06.06.2024
+// - Da se napravi avtentikacija so mail
+// - Da se implementira json webtoken
+// - da se napravat guest route, user route, admin route i owner route i site so posebni privilelgii
 
 -----------------------------------------------------------------------
