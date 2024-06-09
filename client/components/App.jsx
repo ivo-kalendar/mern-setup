@@ -4,7 +4,8 @@ import Navbar from './Navbar'
 import '../styles/App.css'
 import SetupDefault from './SetupDefault'
 import TestRouter from '../routes/TestRouter'
-import { Outlet } from 'react-router-dom'
+import { Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
+// import { routes } from '../routes/AppRoutes'
 
 export default function App() {
     

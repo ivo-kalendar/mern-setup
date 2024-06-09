@@ -1,4 +1,5 @@
 import { renderToString } from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom/server'
 import { StrictMode } from 'react'
 import App from '../components/App'
 
@@ -9,7 +10,9 @@ export function render() {
     
     const html = renderToString(
         <StrictMode>
-            <App />
+            <StaticRouter>
+                <App />
+            </StaticRouter>
         </StrictMode>
     )
     return { html, head }
