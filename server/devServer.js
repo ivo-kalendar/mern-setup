@@ -7,7 +7,8 @@ export default async function createDevServer(app) {
     const vite = await createServer({
         server: { middlewareMode: true },
         appType: 'custom',
-        base
+        base,
+        // root: './'
     })
     app.use(vite.middlewares)
 
