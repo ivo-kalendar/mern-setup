@@ -18,5 +18,8 @@ Minor:
 - Separated userRoutes from routes.
 - User Routes Controler, Model and Schema.
 - User validator helpers and middlewares.
+- Added Spinners.
+- Initial navigation, Navbar, Redirect and Router.
+- Initial pages.
 
 ```
