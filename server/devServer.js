@@ -14,7 +14,7 @@ export default async function createDevServer(app) {
 
     app.use('*', async (req, res) => {
         try {
-            const url = req.originalUrl.replace(base, '')
+            const url = req.originalUrl//.replace(base, '')
 
             const served_html = await fs.readFile('./index.html', 'utf-8')
             const template = await vite.transformIndexHtml(url, served_html)

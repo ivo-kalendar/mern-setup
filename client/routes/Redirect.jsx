@@ -1,5 +1,5 @@
 import { useRedirect } from "../hooks/navigation"
-import Spinner from "../layouts/Spinner"
+import Spinner from "../layout/Spinner"
 
 /**
  * Redirects to the specified route using the provided navigation function.

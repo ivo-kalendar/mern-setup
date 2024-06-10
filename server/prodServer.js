@@ -14,7 +14,7 @@ export default async function createProdServer(app) {
     
     app.use('*', async (req, res) => {
         try {
-            const url = req.originalUrl.replace(BASE, '')
+            const url = req.originalUrl//.replace(BASE, '')
             const template = templateHtml
             const render = (await import('../dist/server/entry-server.js')).render
 
