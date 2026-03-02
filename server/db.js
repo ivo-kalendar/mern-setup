@@ -10,7 +10,7 @@ async function makeConnection() {
         console.log(' [db.js] Already connected');
         return
     }
-    
+
     try {
         await client.connect()
         client.is_connected = true

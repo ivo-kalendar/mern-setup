@@ -12,13 +12,13 @@ export default async function createProdServer(app) {
     app.use(compression())
     app.use(BASE, sirv('./dist/client', { extensions: [] }))
     
-    app.use('*', async (req, res) => {
+    app.use('{/*any}', async (req, res) => {
         try {
             const url = req.originalUrl//.replace(BASE, '')
             const template = templateHtml
             const render = (await import('../dist/server/entry-server.js')).render
 
-            const rendered = render(url, ssrManifest)
+            const rendered = render(url, ssrManifest, req, res)
 
             const html = template
                 .replace(`<!--app-head-->`, rendered.head ?? '')

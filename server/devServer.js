@@ -12,7 +12,7 @@ export default async function createDevServer(app) {
     })
     app.use(vite.middlewares)
 
-    app.use('*', async (req, res) => {
+    app.use('{/*any}', async (req, res) => {
         try {
             const url = req.originalUrl//.replace(base, '')
 

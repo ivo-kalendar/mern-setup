@@ -1,15 +1,15 @@
-import { StrictMode } from 'react'
-import { renderToString } from 'react-dom/server'
-import { StaticRouterProvider, createStaticRouter, createStaticHandler } from 'react-router-dom/server'
-import Routes from '../routes/Rroutes'
+import { StrictMode } from "react";
+import { renderToString } from "react-dom/server";
+import { StaticRouterProvider, createStaticRouter, createStaticHandler } from "react-router-dom";
+import Routes from "../routes/Rroutes";
 
 export async function render(url, ssrManifest, req, res) {
-    const head = renderToString(
+    const head =
+        renderToString();
         // Render Dynamic Head Elements
-    )
-    
-    console.log("urL: ", url, ssrManifest)
-    const { query, dataRoutes } = createStaticHandler(Routes)
+
+    // console.log("urL: ", url, ssrManifest)
+    const { query, dataRoutes } = createStaticHandler(Routes);
 
     const fetchRequest = createFetchRequest(req, res);
     const context = await query(fetchRequest);
@@ -17,20 +17,16 @@ export async function render(url, ssrManifest, req, res) {
     if (context instanceof Response) {
         throw context;
     }
-    const router = createStaticRouter(Routes, context)
+    const router = createStaticRouter(Routes, context);
     // console.log("Router created successfully");
-    
+
     const html = renderToString(
         <StrictMode>
-            <StaticRouterProvider 
-                router={router}
-                context={context}
-            />
-        </StrictMode>
-    )
-    return { html, head }
+            <StaticRouterProvider router={router} context={context} />
+        </StrictMode>,
+    );
+    return { html, head };
 }
-
 
 function createFetchRequest(req, res) {
     let origin = `${req.protocol}://${req.get("host")}`;
